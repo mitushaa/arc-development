@@ -162,14 +162,54 @@ export default function Header(props) {
       className={classes.button}
       >Free Estimate
       </Button>
-      <Menu id="simple-menu" anchorEl={anchorEl} 
+      <Menu 
+      id="simple-menu" 
+      anchorEl={anchorEl} 
       open={open}
       onClose={handleClose}
       MenuListProps={{onMouseLeave: handleClose}}
       >
-        <MenuItem onClick={handleClose}>Custom Software Developement</MenuItem>
-        <MenuItem onClick={handleClose}>Mobile App Developement</MenuItem>
-        <MenuItem onClick={handleClose}>Website Developement</MenuItem>      
+      <MenuItem 
+      onClick={() => {
+      handleClose();
+      setValue(1);
+}}
+      component={Link} 
+      to="/services"
+      >
+          Services
+        </MenuItem>
+      <MenuItem 
+      onClick={() => {
+      handleClose();
+      setValue(1);
+}}
+      component={Link} 
+      to="/customersoftware"
+      >
+          Custom Software Developement
+        </MenuItem>
+        
+        <MenuItem 
+       onClick={() => {
+        handleClose();
+        setValue(1);
+       }}      
+       component={Link} to="/mobileapps"
+       >
+          Mobile App Developement
+          </MenuItem>
+
+
+        <MenuItem 
+         onClick={() => {
+          handleClose();
+          setValue(1);
+         }}      
+        
+       component={Link} to="/websites">
+          Website Developement
+          </MenuItem>      
       </Menu>
       </Toolbar>
     </AppBar>
