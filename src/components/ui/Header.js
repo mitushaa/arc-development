@@ -65,7 +65,11 @@ menu: {
   color: "white"
 },
 menuItem: {
-  ...themetypography.tab
+  ...theme.typography.tab,
+  opacity: 0.7,
+  "&:hover": {
+    opacity: 1
+  }
 }
 }));
 export default function Header(props) {
@@ -221,7 +225,11 @@ export default function Header(props) {
           setValue(1);
          }}      
         
-       component={Link} to="/websites">
+       component={Link} to="/websites"
+       classes={{root: classes.menuItem}}
+
+       >
+         
           Website Developement
           </MenuItem>      
       </Menu>
