@@ -62,7 +62,8 @@ const useStyles = makeStyles(theme => ({
 
 menu: {
   backgroundColor: theme.palette.common.blue,
-  color: "white"
+  color: "white",
+  borderRadius: "0px"
 },
 menuItem: {
   ...theme.typography.tab,
