@@ -7,11 +7,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
 import {Link} from "react-router-dom";
-import Menu from '@material-ui/core/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
-
-
-
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import logo from "../../assets/logo.svg"
 
 
@@ -28,39 +25,45 @@ function ElevationScroll(props) {
 }
 
 const useStyles = makeStyles(theme => ({
+  
   toolbarMargin: {
     ...theme.mixins.toolbar,
     marginBottom: "3rem"
   },
+  
   logo: {
     height: "8rem"
   },
+
   logoContainer: {
     padding: 0,
     "&:hover": {
       backgroundColor: "transparent"
     }
   },
-  tabContainer:{
+  
+  tabContainer: {
     marginLeft: 'auto'
   },
-  logoContainer: {
-    padding: 0
-  },
+
   tab: {
     ...theme.typography.tab,
     minWidth: 10,
     marginLeft: "25px"
   },
+
   button: {
-    ...theme.typography.estimate,
+  ...theme.typography.estimate,
   borderRadius: "50px",
   marginLeft: "50px",
-  marginRight: "25px"
+  marginRight: "25px",
+  height: "45px"
+ },
 
+menu: {
+  backgroundColor: theme.palette.common.blue,
+  color: "white"
 }
-
-
 }));
 export default function Header(props) {
   const classes = useStyles();
@@ -162,12 +165,15 @@ export default function Header(props) {
       className={classes.button}
       >Free Estimate
       </Button>
+      
       <Menu 
       id="simple-menu" 
       anchorEl={anchorEl} 
       open={open}
       onClose={handleClose}
+      classes={{paper: classes.menu}}
       MenuListProps={{onMouseLeave: handleClose}}
+      elevation={0}
       >
       <MenuItem 
       onClick={() => {
