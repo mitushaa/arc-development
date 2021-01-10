@@ -63,6 +63,9 @@ const useStyles = makeStyles(theme => ({
 menu: {
   backgroundColor: theme.palette.common.blue,
   color: "white"
+},
+menuItem: {
+  ...themetypography.tab
 }
 }));
 export default function Header(props) {
@@ -193,6 +196,8 @@ export default function Header(props) {
 }}
       component={Link} 
       to="/customersoftware"
+      classes={{root: classes.menuItem}}
+
       >
           Custom Software Developement
         </MenuItem>
@@ -203,6 +208,8 @@ export default function Header(props) {
         setValue(1);
        }}      
        component={Link} to="/mobileapps"
+       classes={{root: classes.menuItem}}
+
        >
           Mobile App Developement
           </MenuItem>
