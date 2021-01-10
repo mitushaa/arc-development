@@ -182,6 +182,7 @@ export default function Header(props) {
 }}
       component={Link} 
       to="/services"
+      classes={{root: classes.menuItem}}
       >
           Services
         </MenuItem>
