@@ -106,6 +106,9 @@ drawerIconContainer: {
   "&:hover": {
     backgroundColor: "transparent"
   }
+},
+drawer: {
+  backgroundColor: theme.palette.common.blue
 }
 }));
 export default function Header(props) {
@@ -303,24 +306,26 @@ classes={{root: classes.menuItem}} onClick={(event) =>
       disableDiscovery={iOS} 
       open={openDrawer} 
       onClose={() =>setOpenDrawer(false)} 
-      onOpen={() => setOpenDrawer(true)}>
+      onOpen={() => setOpenDrawer(true)}
+      classes={{paper: classes.drawer}}
+      >
 <List disablePadding>
-  <ListItem divider button component={Link} to="/">
+  <ListItem onClick={() => setOpenDrawer(false)} divider button component={Link} to="/">
     <ListItemText disableTypography>Home</ListItemText>
   </ListItem>
-  <ListItem divider button component={Link} to="/services">
+  <ListItem onClick={() => setOpenDrawer(false)} divider button component={Link} to="/services">
     <ListItemText disableTypography>Services</ListItemText>
   </ListItem>
-  <ListItem divider button component={Link} to="/revolution">
+  <ListItem onClick={() => setOpenDrawer(false)} divider button component={Link} to="/revolution">
     <ListItemText disableTypography>The Revolution</ListItemText>
   </ListItem>
-  <ListItem divider button component={Link} to="/about">
+  <ListItem onClick={() => setOpenDrawer(false)} divider button component={Link} to="/about">
     <ListItemText disableTypography>About Us</ListItemText>
   </ListItem>
-  <ListItem divider button component={Link} to="/contact">
+  <ListItem onClick={() => setOpenDrawer(false)} divider button component={Link} to="/contact">
     <ListItemText disableTypography>Contact Us</ListItemText>
   </ListItem>
-  <ListItem divider button component={Link} to="/estimate">
+  <ListItem onClick={() => setOpenDrawer(false)} divider button component={Link} to="/estimate">
     <ListItemText disableTypography>Free Estimate</ListItemText>
   </ListItem>
 
