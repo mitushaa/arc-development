@@ -304,7 +304,7 @@ classes={{root: classes.menuItem}} onClick={(event) =>
       open={openDrawer} 
       onClose={() =>setOpenDrawer(false)} 
       onOpen={() => setOpenDrawer(true)}>
-<List>
+<List disablePadding>
   <ListItem component={Link} to="/">
     <ListItemText disableTypography>Home</ListItemText>
   </ListItem>
