@@ -156,81 +156,40 @@ export default function Header(props) {
     setOpenMenu(false)
   };
 
-  const menuOptions = [{name: "Services", link: "/services"}, 
-  {name: "Customer Software Development", link: "/customsoftware"}, 
-  {name: "Mobile App Development", link: "/mobileapps"}, 
-  {name: "Website Development", link: "/websites"}];
+// eslint-disable-next-line react-hooks/exhaustive-deps
+const menuOptions = [
+  { name: "Services", link: "/services", activeIndex: 1, ariaOwns: anchorEl ? "simple-menu": undefined, 
+  ariaPopup: anchorEl ? "true": undefined, mouseOver: event => handleClick(event)}, 
+  { name: "Customer Software Development", link: "/customsoftware", activeIndex: 1, selectedIndex: 1}, 
+  { name: "Mobile App Development", link: "/mobileapps", activeIndex: 1, selectedIndex: 2}, 
+  { name: "Website Development", link: "/websites", activeIndex: 1, selectedIndex: 3}
+];
 
-  const routes = [
-    { name: "Services", link: "/services"},
-    { name: "Customer Software Development", link: "/customsoftware"},
-    { name: "Mobile App Development", link: "/mobileapps"},
-    { name: "Website Development", link: "/websites"}
-    ];
+// eslint-disable-next-line react-hooks/exhaustive-deps
+const routes = [
+    { name: "Home", link: "/", activeIndex: 0},
+    { name: "Services", link: "/services", activeIndex: 1},
+    { name: "The Revolution", link: "/revolution", activeIndex: 2},
+    { name: "About Us", link: "/about", activeIndex: 3},
+    { name: "Contact Us", link: "/contact", activeIndex: 4}]
 
   useEffect(() => {
-    switch (window.location.pathname) {
-      case "/":
-        if (value !== 0) {
-          setValue(0)
-        }
-        break;
-      case "/services":
-        if (value !== 1) {
-          setValue(1)
-          setSelectedIndex(0)
-        }
-        break;
-
-      case "/customersoftware":
-        if (value !== 1) {
-          setValue(1);
-          setSelectedIndex(1)
-        }
-        break;
-
-        case "/mobileapps":
-        if (value !== 1) {
-          setValue(1);
-          setSelectedIndex(2)
-        }
-        break;
-
-        case "/websites":
-        if (value !== 1) {
-          setValue(1);
-          setSelectedIndex(3)
-        }
-        break;
-
-        case "/revolution":
-        if (value !== 2) {
-          setValue(2);
-        }
-        break;
-
-        case "/about":
-        if (value !== 3) {
-          setValue(3);
-        }
-        break;
-
-        case "/contact":
-        if (value !== 4) {
-          setValue(4);
-        }
-        break;
-        case "/estimate":
-        if (value !== 5) {
-          setValue(5);
-        }
-        break;
-        default:
-          break;
+    [...menuOptions, ...routes].forEach(route => {
+      switch (window.location.pathname) {
+        case `${route.link}`:
+          if (value !== route.activeIndex) {
+            setValue(route.activeIndex)
+            if (route.selectedIndex && route.selectedIndex !== selectedIndex) {
+            setSelectedIndex(route.selectedIndex)
+          }
+      }
+      break;
+      default:
+      break;
     }
+  })
 
-
-  }, [value]);
+  }, [value, menuOptions, selectedIndex, routes]);
 
   const tabs = (
     <React.Fragment>
@@ -240,40 +199,18 @@ export default function Header(props) {
       className ={classes.tabContainer}
       indicatorColor="primary"
       >
-        <Tab 
-        className={classes.tab} 
-        component = {Link} 
-        to="/"
-        label="Home" 
-        />
-        <Tab 
-        aria-owns={anchorEl ? "simple-menu": undefined}
-        aria-haspopup={anchorEl ? "true": undefined}
-        className={classes.tab} 
-        component = {Link} 
-        onMouseOver={event => handleClick(event)}
-        to="/services" 
-        label="Services" 
-        />
-        <Tab 
-        className={classes.tab} 
-        component = {Link} 
-        to="/
-        revolution" label="The Revolution" 
-        />
-        <Tab 
-        className={classes.tab} 
-        component = {Link} 
-        to="/
-        about" label="About Us" 
-        />
-        <Tab 
-        className={classes.tab} 
-        component = {Link} 
-        to="/
-        contact" label="Contact Us" 
-        />
+
+      {routes.map((route, index) => (
+        <Tab className={classes.tab} 
+        component={Link} 
+        to= {route.link} label={route.name}
+        aria-owns={route.ariaOwns} 
+        aria-haspopup={route.ariaPopup} 
+        onMouseOver={route.mouseOver} />
+      ))}  
+      
       </Tabs>
+        
       <Button variant = "contained" 
       color="secondary"
       className={classes.button}
@@ -310,8 +247,18 @@ classes={{root: classes.menuItem}} onClick={(event) =>
       classes={{paper: classes.drawer}}
       >
 <List disablePadding>
+  {routes.map(route => (
+<ListItem divider button component= {Link} to ={route.link} selected={value===route.active} onClick={() =>{setOpenDrawer(false); setValue(route.activeIndex)}}>
+  <ListItemText className={value === route.activeIndex ? [classes.drawerItem, classes.drawerItemSelected]: classes.drawerItem}
+   disableTypography>{route.name}
+  </ListItemText>
+</ListItem>
+  
+  ))}
   <ListItem 
-  onClick={() => {setOpenDrawer(false); setValue(0)}} 
+  onClick={() => {setOpenDrawer(false); 
+  setValue(0)
+}} 
   divider 
   button 
   component={Link} 
@@ -319,10 +266,13 @@ classes={{root: classes.menuItem}} onClick={(event) =>
   selected={value === 0}
   >
 
-  <ListItemText className= {value === 0 ?
-  [classes.drawerItem, classes.drawerItemSelected] :
-  classes.drawerItem}
-  disableTypography>Home</ListItemText>
+  <ListItemText className= {
+    value === 0 ?
+  [classes.drawerItem, classes.drawerItemSelected] 
+  :classes.drawerItem}
+  disableTypography
+  >
+    Home</ListItemText>
   </ListItem>
   <ListItem onClick={() => {setOpenDrawer(false); setValue(1)}} 
   divider button component={Link} to="/services"
