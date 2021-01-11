@@ -309,19 +309,19 @@ classes={{root: classes.menuItem}} onClick={(event) =>
     <ListItemText disableTypography>Home</ListItemText>
   </ListItem>
   <ListItem component={Link} to="/services">
-    <ListItemText>Services</ListItemText>
+    <ListItemText disableTypography>Services</ListItemText>
   </ListItem>
   <ListItem component={Link} to="/revolution">
-    <ListItemText>The Revolution</ListItemText>
+    <ListItemText disableTypography>The Revolution</ListItemText>
   </ListItem>
   <ListItem component={Link} to="/about">
-    <ListItemText>About Us</ListItemText>
+    <ListItemText disableTypography>About Us</ListItemText>
   </ListItem>
   <ListItem component={Link} to="/contact">
-    <ListItemText>Contact Us</ListItemText>
+    <ListItemText disableTypography>Contact Us</ListItemText>
   </ListItem>
   <ListItem component={Link} to="/estimate">
-    <ListItemText>Free Estimate</ListItemText>
+    <ListItemText disableTypography>Free Estimate</ListItemText>
   </ListItem>
 
 </List>
