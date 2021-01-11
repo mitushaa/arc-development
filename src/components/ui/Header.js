@@ -9,6 +9,9 @@ import Button from '@material-ui/core/Button';
 import {Link} from "react-router-dom";
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import {useTheme} from "@material-ui/core/styles"
+
 import logo from "../../assets/logo.svg"
 
 
@@ -75,6 +78,8 @@ menuItem: {
 }));
 export default function Header(props) {
   const classes = useStyles();
+  const theme = useTheme();
+  const matches =useMediaQuery(theme.breakpoints.down("md"))
   const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] =useState(null);
   const [open, setOpen] = useState(false);
@@ -187,20 +192,15 @@ export default function Header(props) {
 
   }, [value]);
 
+  const tabs = (
+    <React.Fragment>
+      
+    </React.Fragment>
+  )
+
 
   return (
     <React.Fragment>
-    <ElevationScroll>
-    <AppBar position="fixed" color="primary">
-    <Toolbar disableGutters>
-      <Button component={Link} 
-      to="/" 
-      disableRipple
-      onClick={() =>
-      setValue(0)} className={classes.logoContainer}>
-      <img alt="company logo" className= {classes.logo} 
-      src={logo} />
-      </Button>
       <Tabs 
       value={value} 
       onChange={handleChange}
@@ -264,6 +264,19 @@ classes={{root: classes.menuItem}} onClick={(event) =>
   selected={i === selectedIndex && value === 1}>{option.name}</MenuItem>
       ))} 
       </Menu>
+    <ElevationScroll>
+    <AppBar position="fixed" color="primary">
+    <Toolbar disableGutters>
+      <Button component={Link} 
+      to="/" 
+      disableRipple
+      onClick={() =>
+      setValue(0)} className={classes.logoContainer}>
+      <img alt="company logo" className= {classes.logo} 
+      src={logo} />
+      </Button>
+      {matches ? null: tabs}
+
       </Toolbar>
     </AppBar>
     </ElevationScroll>
