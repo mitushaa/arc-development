@@ -305,22 +305,22 @@ classes={{root: classes.menuItem}} onClick={(event) =>
       onClose={() =>setOpenDrawer(false)} 
       onOpen={() => setOpenDrawer(true)}>
 <List disablePadding>
-  <ListItem component={Link} to="/">
+  <ListItem divider button component={Link} to="/">
     <ListItemText disableTypography>Home</ListItemText>
   </ListItem>
-  <ListItem component={Link} to="/services">
+  <ListItem divider button component={Link} to="/services">
     <ListItemText disableTypography>Services</ListItemText>
   </ListItem>
-  <ListItem component={Link} to="/revolution">
+  <ListItem divider button component={Link} to="/revolution">
     <ListItemText disableTypography>The Revolution</ListItemText>
   </ListItem>
-  <ListItem component={Link} to="/about">
+  <ListItem divider button component={Link} to="/about">
     <ListItemText disableTypography>About Us</ListItemText>
   </ListItem>
-  <ListItem component={Link} to="/contact">
+  <ListItem divider button component={Link} to="/contact">
     <ListItemText disableTypography>Contact Us</ListItemText>
   </ListItem>
-  <ListItem component={Link} to="/estimate">
+  <ListItem divider button component={Link} to="/estimate">
     <ListItemText disableTypography>Free Estimate</ListItemText>
   </ListItem>
 
