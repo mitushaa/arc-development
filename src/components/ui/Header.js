@@ -201,7 +201,9 @@ const routes = [
       >
 
       {routes.map((route, index) => (
-        <Tab className={classes.tab} 
+        <Tab 
+      key={`${route}${index}`}
+        className={classes.tab} 
         component={Link} 
         to= {route.link} label={route.name}
         aria-owns={route.ariaOwns} 
@@ -249,7 +251,10 @@ classes={{root: classes.menuItem}} onClick={(event) =>
       >
 <List disablePadding>
   {routes.map(route => (
-<ListItem divider button component= {Link} to ={route.link} selected={value===route.active} onClick={() =>{setOpenDrawer(false); setValue(route.activeIndex)}}>
+<ListItem 
+divider  
+key={`${route}${route.activeIndex}`}
+button component= {Link} to ={route.link} selected={value===route.active} onClick={() =>{setOpenDrawer(false); setValue(route.activeIndex)}}>
   <ListItemText className={value === route.activeIndex ? [classes.drawerItem, classes.drawerItemSelected]: classes.drawerItem}
    disableTypography>{route.name}
   </ListItemText>
