@@ -120,6 +120,9 @@ drawerItemEstimate: {
 },
 drawerItemSelected: {
   opacity: 1
+},
+appbar: {
+  zIndex: theme.zIndex.modal+1
 }
 }));
 export default function Header(props) {
@@ -293,7 +296,7 @@ disableRipple>
     <React.Fragment>
       
     <ElevationScroll>
-    <AppBar position="fixed" color="primary">
+    <AppBar position="fixed" className={classes.appBar}>
     <Toolbar disableGutters>
       <Button component={Link} 
       to="/" 
