@@ -306,7 +306,7 @@ classes={{root: classes.menuItem}} onClick={(event) =>
       onOpen={() => setOpenDrawer(true)}>
 <List>
   <ListItem component={Link} to="/">
-    <ListItemText>Home</ListItemText>
+    <ListItemText disableTypography>Home</ListItemText>
   </ListItem>
   <ListItem component={Link} to="/services">
     <ListItemText>Services</ListItemText>
