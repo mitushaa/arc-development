@@ -119,10 +119,12 @@ drawerItemEstimate: {
   backgroundColor: theme.palette.common.orange
 },
 drawerItemSelected: {
+  "& .MuiListItemText-root": {
   opacity: 1
+  }
 },
 appbar: {
-  zIndex: theme.zIndex.modal+1
+  zIndex: theme.zIndex.modal + 1
 }
 }));
 export default function Header(props) {
@@ -230,10 +232,14 @@ const routes = [
       classes={{paper: classes.menu}}
       MenuListProps={{onMouseLeave: handleClose}}
       elevation={0}
+      style={{zIndex: 1302}}
       keepMounted
       >
       {menuOptions.map((option, i) => (
-<MenuItem key= {option}component = {Link} to ={option.link}
+<MenuItem 
+key= {`${option}${i}`}
+component = {Link} 
+to ={option.link}
 classes={{root: classes.menuItem}} onClick={(event) =>
   {handleMenuItemClick(event, i); setValue(1);
     handleClose()}} 
@@ -252,31 +258,49 @@ classes={{root: classes.menuItem}} onClick={(event) =>
       onOpen={() => setOpenDrawer(true)}
       classes={{paper: classes.drawer}}
       >
+        <div className={classes.toolbarMargin} />
 <List disablePadding>
   {routes.map(route => (
 <ListItem 
 divider  
 key={`${route}${route.activeIndex}`}
-button component= {Link} to ={route.link} selected={value===route.active} onClick={() =>{setOpenDrawer(false); setValue(route.activeIndex)}}>
-  <ListItemText className={value === route.activeIndex ? [classes.drawerItem, classes.drawerItemSelected]: classes.drawerItem}
-   disableTypography>{route.name}
+button 
+component= {Link} 
+to ={route.link} 
+selected={value===route.activeIndex} 
+classes={{selected: classes.drawerItemSelected}}
+onClick={() => {
+setOpenDrawer(false); 
+setValue(route.activeIndex);
+}}
+>
+  <ListItemText 
+  className={classes.drawerItem}
+   disableTypography
+   >
+     {route.name}
   </ListItemText>
 </ListItem>
-  
   ))}
-  <ListItem onClick={() => {setOpenDrawer(false); setValue(5)}} 
-  divider button 
+  <ListItem 
+  onClick={() => {
+    setOpenDrawer(false); 
+    setValue(5);
+  }} 
+  divider 
+  button 
   component={Link} 
-  className={classes.drawerItemEstimate} 
-
+  className={{root:classes.drawerItemEstimate, selected:
+  classes.drawerItemSelected}}
   to="/estimate"
   selected={value === 5}
 
   >
-    <ListItemText className= {value === 5 ?
-  [classes.drawerItem, classes.drawerItemSelected] :
-  classes.drawerItem}
-    disableTypography>Free Estimate
+    <ListItemText 
+    className= {classes.drawerItem}
+    disableTypography
+    >
+      Free Estimate
     </ListItemText>
   </ListItem>
 
