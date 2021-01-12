@@ -1,5 +1,7 @@
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+
 import footerAdornment from '../../assets/Footer Adornment.svg'
 
 const useStyles = makeStyles(theme => ({
@@ -18,7 +20,17 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down("xs")]: {
             width: "15em"
         }
+    },
+    mainContainer: {
+        position: "absolute"
+    },
+    link: {
+        color: "white",
+        fontFamily: "Arial",
+        fontSize: "0.75rem",
+        fontWeight: "bold"
     }
+
 }));
 
 export default function Footer() {
@@ -26,7 +38,11 @@ export default function Footer() {
     
     return (
     <footer className={classes.footer}>
-        <img alt="black decorative slash" 
+        <Grid container className= {classes.mainContainer}>
+            <Grid item className={classes.link}>Home</Grid>
+            </Grid>
+        <img 
+        alt="black decorative slash" 
         src={footerAdornment}
         className={classes.adornment}
         />
