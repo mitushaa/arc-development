@@ -17,12 +17,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-
-
-
-
-
-import logo from "../../assets/logo.svg"
+import logo from "../../assets/logo.svg";
 
 
 function ElevationScroll(props) {
@@ -320,7 +315,7 @@ disableRipple>
     <React.Fragment>
       
     <ElevationScroll>
-    <AppBar position="fixed" className={classes.appBar}>
+    <AppBar position="fixed" className={classes.appbar}>
     <Toolbar disableGutters>
       <Button component={Link} 
       to="/" 
