@@ -6,6 +6,10 @@ const useStyles = makeStyles(theme => ({
     footer: {
         backgroundColor: theme.palette.common.blue,
         width: "100%"
+    },
+    adornment: {
+        width: "25em",
+        verticalAlign: "bottom"
     }
 }));
 
