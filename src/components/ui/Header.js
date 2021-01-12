@@ -129,17 +129,15 @@ export default function Header(props) {
   .test(navigator.userAgent);
   const matches =useMediaQuery(theme.breakpoints.down("md"))
 
-  const [openDrawer, setOpenDrawer] = useState(false)
-  const [value, setValue] = useState(0);
+  const [openDrawer, setOpenDrawer] = useState(false);
   const [anchorEl, setAnchorEl] =useState(null);
   const [openMenu, setOpenMenu] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(0)
 
   const handleChange = (e, newValue) => {
-    setValue(newValue);
+    props.setValue(newValue);
   };
 
-  const handleClick = (e) => {
+  const handleClick = e => {
     setAnchorEl(e.currentTarget);
     setOpenMenu(true);
 
@@ -147,13 +145,13 @@ export default function Header(props) {
 
   const handleMenuItemClick = (e, i)=> {
     setAnchorEl(null);
-    setOpenMenu(false)
-    setSelectedIndex(i)
+    setOpenMenu(false);
+    setSelectedIndex(i);
 
   }
-  const handleClose = (e) => {
+  const handleClose = e => {
     setAnchorEl(null);
-    setOpenMenu(false)
+    setOpenMenu(false);
   };
 
 // eslint-disable-next-line react-hooks/exhaustive-deps
