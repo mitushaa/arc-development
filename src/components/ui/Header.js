@@ -146,7 +146,7 @@ export default function Header(props) {
   const handleMenuItemClick = (e, i)=> {
     setAnchorEl(null);
     setOpenMenu(false);
-    setSelectedIndex(i);
+    props.setSelectedIndex(i);
 
   }
   const handleClose = e => {
@@ -175,24 +175,24 @@ const routes = [
     [...menuOptions, ...routes].forEach(route => {
       switch (window.location.pathname) {
         case `${route.link}`:
-          if (value !== route.activeIndex) {
-            setValue(route.activeIndex)
-            if (route.selectedIndex && route.selectedIndex !== selectedIndex) {
-            setSelectedIndex(route.selectedIndex)
+          if (props.value !== route.activeIndex) {
+           props.setValue(route.activeIndex);
+            if (route.selectedIndex && route.selectedIndex !== props.selectedIndex) {
+            props.setSelectedIndex(route.selectedIndex);
           }
       }
       break;
       default:
       break;
     }
-  })
+  });
 
-  }, [value, menuOptions, selectedIndex, routes]);
+  }, [props.value, props.menuOptions, props.selectedIndex, routes, props, menuOptions]);
 
   const tabs = (
     <React.Fragment>
       <Tabs 
-      value={value} 
+      value={props.value} 
       onChange={handleChange}
       className ={classes.tabContainer}
       indicatorColor="primary"
@@ -233,10 +233,12 @@ const routes = [
 key= {`${option}${i}`}
 component = {Link} 
 to ={option.link}
-classes={{root: classes.menuItem}} onClick={(event) =>
-  {handleMenuItemClick(event, i); setValue(1);
+classes={{root: classes.menuItem}} 
+onClick={(event) =>
+  {handleMenuItemClick(event, i); 
+    props.setValue(1);
     handleClose()}} 
-  selected={i === selectedIndex && value === 1}>{option.name}</MenuItem>
+  selected={i === props.selectedIndex && props.value === 1}>{option.name}</MenuItem>
       ))} 
       </Menu>
     </React.Fragment>
@@ -260,11 +262,11 @@ key={`${route}${route.activeIndex}`}
 button 
 component= {Link} 
 to ={route.link} 
-selected={value===route.activeIndex} 
+selected={props.value===route.activeIndex} 
 classes={{selected: classes.drawerItemSelected}}
 onClick={() => {
 setOpenDrawer(false); 
-setValue(route.activeIndex);
+props.setValue(route.activeIndex);
 }}
 >
   <ListItemText 
@@ -278,7 +280,7 @@ setValue(route.activeIndex);
   <ListItem 
   onClick={() => {
     setOpenDrawer(false); 
-    setValue(5);
+    props.setValue(5);
   }} 
   divider 
   button 
@@ -286,7 +288,7 @@ setValue(route.activeIndex);
   className={{root:classes.drawerItemEstimate, selected:
   classes.drawerItemSelected}}
   to="/estimate"
-  selected={value === 5}
+  selected={props.value === 5}
 
   >
     <ListItemText 
@@ -319,7 +321,7 @@ disableRipple>
       to="/" 
       disableRipple
       onClick={() =>
-      setValue(0)} className={classes.logoContainer}>
+      props.setValue(0)} className={classes.logoContainer}>
       <img alt="company logo" className= {classes.logo} 
       src={logo} />
       </Button>
