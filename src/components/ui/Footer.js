@@ -148,13 +148,13 @@ export default function Footer(props) {
         className={classes.adornment}
         />
 <Grid container>
-    <Grid item>
+    <Grid item component= {"a"} href="https://www.facebook.com" rel="nooperner noreferrer" target="_blank" >
         <img alt="facebook logo" arc={facebook} className={classes.icon} />
     </Grid>
-    <Grid item>
+    <Grid item component= {"a"} href="https://www.twitter.com" rel="nooperner noreferrer" target="_blank" >
         <img alt="twitter logo" arc={twitter} className={classes.icon}/>
     </Grid>
-    <Grid item>
+    <Grid item component= {"a"} href="https://www.instagram.com" rel="nooperner noreferrer" target="_blank" >
         <img alt="instagram logo" arc={instagram} className={classes.icon} />
     </Grid>
 </Grid>
