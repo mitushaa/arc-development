@@ -5,8 +5,8 @@ import Grid from "@material-ui/core/Grid";
 import Hidden from '@material-ui/core/Hidden'
 
 import footerAdornment from '../../assets/Footer Adornment.svg';
-import facebook from '../../assets/facebook.svg'
-import twitter from '../../assets/twitter.svg'
+import facebook from '../../assets/facebook.svg';
+import twitter from '../../assets/twitter.svg';
 import instagram from '../../assets/instagram.svg'
 
 
@@ -43,6 +43,11 @@ const useStyles = makeStyles(theme => ({
     icon: {
         height: "4rem",
         width: "4rem"
+    },
+    socialContainer: {
+        position: "absolute",
+        marginTop: "-6rem",
+        right: "1.5em"
     }
 
 }));
@@ -147,7 +152,7 @@ export default function Footer(props) {
         src={footerAdornment}
         className={classes.adornment}
         />
-<Grid container>
+<Grid container justify= "flex-end" spacing={2} className={classes.socialContainer}>
     <Grid item component= {"a"} href="https://www.facebook.com" rel="nooperner noreferrer" target="_blank" >
         <img alt="facebook logo" arc={facebook} className={classes.icon} />
     </Grid>
