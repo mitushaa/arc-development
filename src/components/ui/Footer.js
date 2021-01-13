@@ -4,7 +4,11 @@ import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Hidden from '@material-ui/core/Hidden'
 
-import footerAdornment from '../../assets/Footer Adornment.svg'
+import footerAdornment from '../../assets/Footer Adornment.svg';
+import facebook from '../../assets/facebook.svg'
+import twitter from '../../assets/twitter.svg'
+import instagram from '../../assets/instagram.svg'
+
 
 const useStyles = makeStyles(theme => ({
     footer: {
@@ -35,6 +39,10 @@ const useStyles = makeStyles(theme => ({
     },
     gridItem: {
         margin: "3em"
+    },
+    icon: {
+        height: "4rem",
+        width: "4rem"
     }
 
 }));
@@ -139,6 +147,18 @@ export default function Footer(props) {
         src={footerAdornment}
         className={classes.adornment}
         />
+<Grid container>
+    <Grid item>
+        <img alt="facebook logo" arc={facebook} className={classes.icon} />
+    </Grid>
+    <Grid item>
+        <img alt="twitter logo" arc={twitter} className={classes.icon}/>
+    </Grid>
+    <Grid item>
+        <img alt="instagram logo" arc={instagram} className={classes.icon} />
+    </Grid>
+</Grid>
+
    </footer>
    );
 
