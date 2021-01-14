@@ -29,7 +29,15 @@ export default createMuiTheme({
   textTransform: "none",
   height: "45px",
   color: "white"
+    },
+    h2: {
+        fontFamily: "Raleway",
+        fontWeight: 700,
+        fontSize: "2.5rem",
+        color: `${arcBlue}`,
+        lineHeight: 1.5
     }
+
  
     }
 
