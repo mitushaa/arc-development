@@ -33,7 +33,18 @@ const useStyles = makeStyles(theme => ({
     },
     buttonContainer: {
         marginTop: "1rem"
-    }
+    },
+    learnButtonHero: {
+        borderColor: theme.palette.common.blue,
+        borderWidth: 2, 
+        textTransform: "none",
+        borderRadius: 50,
+        fontFamily: "Roboto",
+        fontWeight: "bold",
+        fontSize: "0.9rem",
+        height: 45,
+        weight: 145
+        }
 
 }));
 
@@ -66,7 +77,7 @@ export default function LandingPage() {
 <Grid item>
 
 
-<Button variant = "outlined">Learn More
+<Button variant = "outlined" className={classes.learnButtonHero}>Learn More
 <ButtonArrow width={15} height={15} fill="red" />
 
 </Button>
