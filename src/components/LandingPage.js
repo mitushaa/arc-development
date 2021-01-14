@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import {makeStyles} from '@material-ui/core/styles';
+import {makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ButtonArrow from '../components/ui/ButtonArrow';
@@ -36,6 +36,8 @@ const useStyles = makeStyles(theme => ({
     },
     learnButtonHero: {
         borderColor: theme.palette.common.blue,
+        color: theme.palette.common.blue,
+
         borderWidth: 2, 
         textTransform: "none",
         borderRadius: 50,
@@ -50,6 +52,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function LandingPage() {
     const classes = useStyles();
+    const theme = useTheme();
 
     const defaultOptions= {
         loop: true,
@@ -78,7 +81,7 @@ export default function LandingPage() {
 
 
 <Button variant = "outlined" className={classes.learnButtonHero}>Learn More
-<ButtonArrow width={15} height={15} fill="red" />
+<ButtonArrow width={15} height={15} fill={theme.palette.common.blue} />
 
 </Button>
 
