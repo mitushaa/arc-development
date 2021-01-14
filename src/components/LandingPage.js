@@ -18,6 +18,15 @@ const useStyles = makeStyles(theme => ({
         marginTop: "2em",
         marginLeft: "10%"
 
+    },
+    estimateButton: {
+        ...theme.typography.estimate,
+        backgroundColor: theme.palette.common.orange,
+        borderRadius: 50,
+        height: 45,
+        width: 145,
+        marginRight: 40
+
     }
 
 }));
@@ -40,10 +49,12 @@ export default function LandingPage() {
             <Grid container justify= "flex-end" alignItems="center" direction="row">
             <Grid sm item>
                 <Typography variant= "h2" align="center">
-                    Bringing the West Coast Technology <br/>to the Midwest</Typography>
-                <Grid container>
+                    Bringing the West Coast Technology <br/>to the Midwest
+                    </Typography>
+                <Grid container justify="center">
                     <Grid item>
-                    <Button variant = "outlined">Free Estimate</Button>
+                    <Button className={classes.estimateButton}
+                    variant = "outlined">Free Estimate</Button>
 </Grid>
 <Grid item>
 
