@@ -16,7 +16,10 @@ const useStyles = makeStyles(theme => ({
         maxWidth: "50em",
         minWidth: "21em",
         marginTop: "2em",
-        marginLeft: "10%"
+        marginLeft: "10%",
+        [theme.breakpoints.down("sm")]: {
+            maxWidth: "30em"
+        }
 
     },
     estimateButton: {
@@ -46,7 +49,26 @@ const useStyles = makeStyles(theme => ({
         fontSize: "0.9rem",
         height: 45,
         weight: 145
+        },
+        marginContainer: {
+            marginTop: "5em",
+            [theme.breakpoints.down("md")]:{
+                marginTop: "3em"
+            },
+            [theme.breakpoints.down("xs")]:{
+                marginTop: "2em"
+
+        },
+        heroTextContainer: {
+            mainWidth: "21.5em",
+            marginleft: "1em",
+            [theme.breakpoints.down("xs")] : {
+                marginLeft: 0
         }
+
+        }
+    
+    }
 
 }));
 
@@ -64,18 +86,19 @@ export default function LandingPage() {
     }
 
     return (
-        <Grid container direction="column">
+        <Grid container direction="column" className={classes.mainContainer}>
             <Grid item>
             <Grid container justify= "flex-end" alignItems="center" direction="row">
-            <Grid sm item>
+            <Grid sm item className={classes.heroTextContainer}>
                 <Typography variant= "h2" align="center">
                     Bringing the West Coast Technology <br/>to the Midwest
                     </Typography>
-                <Grid container justify="center"
+                <Grid container 
+                justify="center"
                 className={classes.buttonContainer}>
                     <Grid item>
                     <Button className={classes.estimateButton}
-                    variant = "outlined">Free Estimate</Button>
+                    variant = "contained">Free Estimate</Button>
 </Grid>
 <Grid item>
 
