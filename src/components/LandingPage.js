@@ -3,6 +3,8 @@ import Lottie from 'react-lottie';
 import {makeStyles} from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
+import ButtonArrow from '../components/ui/ButtonArrow'
+
 
 
 import animationData from '../animations/landinganimation/data'
@@ -37,7 +39,10 @@ export default function LandingPage() {
 <Grid item>
 
 
-<Button variant = "outlined">Learn More</Button>
+<Button variant = "outlined">Learn More
+<ButtonArrow width={15} height={15} fill="red" />
+
+</Button>
 
 </Grid>
 </Grid>
