@@ -87,7 +87,7 @@ export default function LandingPage() {
 
     return (
         <Grid container direction="column" className={classes.mainContainer}>
-            <Grid item>
+            <Grid item> {/*-----Hero Block-----*/}
             <Grid container justify= "flex-end" alignItems="center" direction="row">
             <Grid sm item className={classes.heroTextContainer}>
                 <Typography variant= "h2" align="center">
@@ -104,8 +104,7 @@ export default function LandingPage() {
 
 
 <Button variant = "outlined" className={classes.learnButtonHero}>
-  <span style={{ marginRight: 10}}>
-    Learn More</span>
+  
 <ButtonArrow width={15} height={15} fill={theme.palette.common.blue} />
 
 </Button>
@@ -118,6 +117,28 @@ export default function LandingPage() {
     <Lottie options={defaultOptions} height={"100%"} width={"100%"} />
 </Grid>
 </Grid>
+</Grid>
+<Grid item> {/*-----Services Block-----*/}
+<Grid comtainer direction="row">
+    <Grid item>
+        <Typography variant="h4">
+        Custom Software Development
+        </Typography>
+        <Typography variant="subtitle1">
+        Save Energy. Save Time. Save Money.
+        </Typography>
+        <Typography variant="subtitle1">
+       Complete digital solution, from investigation to{""}
+       <span>celebration</span>
+        </Typography>
+        <Button variant="outlined">
+        <span style={{ marginRight: 10}}>Learn More</span>
+        <ButtonArrow width={10} height={10} 
+        fill={theme.palette.common.blue}/>
+        </Button>
+    </Grid>
+</Grid>
+
 </Grid>
 </Grid>
 
