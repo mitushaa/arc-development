@@ -80,7 +80,9 @@ export default function LandingPage() {
 <Grid item>
 
 
-<Button variant = "outlined" className={classes.learnButtonHero}>Learn More
+<Button variant = "outlined" className={classes.learnButtonHero}>
+  <span style={{ marginRight: 10}}>
+    Learn More</span>
 <ButtonArrow width={15} height={15} fill={theme.palette.common.blue} />
 
 </Button>
