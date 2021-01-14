@@ -2,11 +2,11 @@ import React from "react"
 import {Link} from 'react-router-dom'
 import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Hidden from '@material-ui/core/Hidden'
+import Hidden from '@material-ui/core/Hidden';
 
 import footerAdornment from '../../assets/Footer Adornment.svg';
-import facebook from '../../assets/facebook.svg';
-import twitter from '../../assets/twitter.svg';
+import facebook from '../../assets/facebook.svg'
+import twitter from '../../assets/twitter.svg'
 import instagram from '../../assets/instagram.svg'
 
 
@@ -42,13 +42,19 @@ const useStyles = makeStyles(theme => ({
     },
     icon: {
         height: "4rem",
-        width: "4rem"
-    },
+        width: "4rem",
+        [theme.breakpoints.down("xs")]: {
+            height: "2.5em",
+            width: "2.5em"
+    }
+},
     socialContainer: {
         position: "absolute",
         marginTop: "-6rem",
-        right: "1.5em"
+        [theme.breakpoints.down("xs")]: {
+        right: "0.5em"
     }
+}
 
 }));
 
