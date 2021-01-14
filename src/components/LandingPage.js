@@ -29,7 +29,7 @@ export default function LandingPage() {
     return (
         <Grid container direction="column">
             <Grid item>
-            <Grid container justify= "flex-end" direction="row">
+            <Grid container justify= "flex-end" alignItems="center" direction="row">
             <Grid item>
                 <div>Bringing the West Coast Technology<br/>to the Midwest</div>
                 <Grid container>
