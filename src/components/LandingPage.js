@@ -137,7 +137,7 @@ export default function LandingPage() {
 </Grid>
 </Grid>
 <Grid item> {/*-----Services Block-----*/}
-<Grid comtainer direction="row">
+<Grid container direction="row" className={classes.serviceContainer}>
     <Grid item>
         <Typography variant="h4">
         Custom Software Development
