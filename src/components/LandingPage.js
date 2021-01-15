@@ -23,7 +23,6 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down("sm")]: {
             maxWidth: "30em"
         }
-
     },
     estimateButton: {
         ...theme.typography.estimate,
@@ -38,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 
     },
     buttonContainer: {
-        marginTop: "1rem"
+        marginTop: "1em"
     },
    
     learnButtonHero: {
@@ -51,7 +50,9 @@ const useStyles = makeStyles(theme => ({
         ...theme.typography.learnButton,
         fontSize: "0.7rem",
         height: 35,
-        padding: 5
+        padding: 5,
+        [theme.breakpoints.down("sm")] : {
+            marginButtom: "2rem"
         },
 
 
@@ -87,10 +88,14 @@ const useStyles = makeStyles(theme => ({
             }
         },
         serviceContainer: {
-            marginTop: "12rem"
+            marginTop: "12rem",
+            [theme.breakpoints.down("sm")]:{
+                padding: 25
         }
     
     
+    }
+}
 
 
 }));
@@ -146,13 +151,16 @@ export default function LandingPage() {
 <Grid container direction="row" 
 justify={matchesSM ? "center" : undefined}
 className={classes.serviceContainer}>
-    <Grid item style={{ marginLeft: "5em"}}>
+    
+    
+    <Grid item style={{ marginLeft: matchesSM ? 0 :"5em", textAlign: matchesSM ? "center" : undefined}}>
         <Typography variant="h4">
         Custom Software Development
         </Typography>
         <Typography variant="subtitle1" className={classes.subtitle}>
         Save Energy. Save Time. Save Money.
         </Typography>
+       
         <Typography variant="subtitle1">
        Complete digital solution, from investigation to {""}
        <span className={classes.specialText}>celebration</span>
