@@ -160,13 +160,13 @@ export default function Footer(props) {
         />
 <Grid container justify= "flex-end" spacing={2} className={classes.socialContainer}>
     <Grid item component= {"a"} href="https://www.facebook.com" rel="nooperner noreferrer" target="_blank" >
-        <img alt="facebook logo" arc={facebook} className={classes.icon} />
+        <img alt="facebook logo" src={facebook} className={classes.icon} />
     </Grid>
     <Grid item component= {"a"} href="https://www.twitter.com" rel="nooperner noreferrer" target="_blank" >
-        <img alt="twitter logo" arc={twitter} className={classes.icon}/>
+        <img alt="twitter logo" src={twitter} className={classes.icon}/>
     </Grid>
     <Grid item component= {"a"} href="https://www.instagram.com" rel="nooperner noreferrer" target="_blank" >
-        <img alt="instagram logo" arc={instagram} className={classes.icon} />
+        <img alt="instagram logo" src={instagram} className={classes.icon} />
     </Grid>
 </Grid>
 
