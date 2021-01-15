@@ -45,7 +45,12 @@ const useStyles = makeStyles(theme => ({
         height: 45,
         weight: 145
         },
-
+    learnButton: {
+        ...theme.typography.learnButton,
+        fontSize: "0.7rem",
+        height: 35,
+        padding: 5
+        },
 
 
         marginContainer: {
@@ -69,6 +74,15 @@ const useStyles = makeStyles(theme => ({
         specialText: {
             fontFamily: "Pacifico",
             color: theme.palette.common.orange
+        },
+        subtitle: {
+            marginBottom: "1em"
+        },
+        icon: {
+            marginLeft: "2em",
+            [theme.breakpoints.down("xs")]:{
+                marginLeft:0
+            }
         }
     
     
@@ -128,7 +142,7 @@ export default function LandingPage() {
         <Typography variant="h4">
         Custom Software Development
         </Typography>
-        <Typography variant="subtitle1">
+        <Typography variant="subtitle1" className={classes.subtitle}>
         Save Energy. Save Time. Save Money.
         </Typography>
         <Typography variant="subtitle1">
@@ -144,7 +158,8 @@ export default function LandingPage() {
         </Button>
     </Grid>
     <Grid item>
-        <img alt="custom software icon" src= {customSoftwareIcon} />
+        <img className={classes.icon}
+        alt="custom software icon" src= {customSoftwareIcon} />
     </Grid>
 </Grid>
 
