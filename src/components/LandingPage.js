@@ -40,6 +40,7 @@ const useStyles = makeStyles(theme => ({
     },
    
     learnButtonHero: {
+        ...theme.typography.learnButton,
         fontSize: "0.9rem",
         height: 45,
         weight: 145
@@ -54,7 +55,7 @@ const useStyles = makeStyles(theme => ({
             },
             [theme.breakpoints.down("xs")]:{
                 marginTop: "2em"
-
+            }
         },
         heroTextContainer: {
             mainWidth: "21.5em",
@@ -70,7 +71,8 @@ const useStyles = makeStyles(theme => ({
             color: theme.palette.common.orange
         }
     
-    }
+    
+
 
 }));
 
