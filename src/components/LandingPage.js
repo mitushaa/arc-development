@@ -5,6 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ButtonArrow from '../components/ui/ButtonArrow';
 import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+
 import customSoftwareIcon from '../assets/Custom Software Icon.svg'
 
 
@@ -83,6 +85,9 @@ const useStyles = makeStyles(theme => ({
             [theme.breakpoints.down("xs")]:{
                 marginLeft:0
             }
+        },
+        serviceContainer: {
+            marginTop: "12rem"
         }
     
     
@@ -93,6 +98,7 @@ const useStyles = makeStyles(theme => ({
 export default function LandingPage() {
     const classes = useStyles();
     const theme = useTheme();
+    const matchesSM = useMediaQuery(theme.breakpoints.down("sm"))
 
     const defaultOptions= {
         loop: true,
@@ -137,8 +143,10 @@ export default function LandingPage() {
 </Grid>
 </Grid>
 <Grid item> {/*-----Services Block-----*/}
-<Grid container direction="row" className={classes.serviceContainer}>
-    <Grid item>
+<Grid container direction="row" 
+justify={matchesSM ? "center" : undefined}
+className={classes.serviceContainer}>
+    <Grid item style={{ marginLeft: "5em"}}>
         <Typography variant="h4">
         Custom Software Development
         </Typography>
